@@ -3,9 +3,12 @@ package dev.jane.workoutlog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns.EMAIL_ADDRESS
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
 import com.google.android.material.textfield.TextInputLayout
+import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var tvLogin: TextView
@@ -56,6 +59,7 @@ class SignUpActivity : AppCompatActivity() {
         if (lastname.isBlank()){
             tillastName.error="Password is required"
         }
+        tilEmail.error=null
 
         if(email.isBlank()){
             tilEmail.error="Email is invalid"
@@ -66,9 +70,16 @@ class SignUpActivity : AppCompatActivity() {
         if (confirm.isBlank()){
             tilconfirm.error="Password is required"
         }
+        if (tilPassword!=tilconfirm){
+            tilconfirm.error="error"
+
+
+        }
+        if(!Pattern.EMAIL_ADDRESS.matcher(email).matches()){
+            tilEmail.error="Email is invalid"
+        }
+
 
 
     }
-
-
 }

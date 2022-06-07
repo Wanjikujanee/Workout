@@ -26,10 +26,7 @@ class LoginActivity : AppCompatActivity() {
       btnLogin=findViewById(R.id.btnLogin)
 
 
-
-
-
-      tvSignUp.setOnClickListener {
+          etTextView.setOnClickListener {
           val intent = Intent(this, SignUpActivity::class.java)
           startActivity(intent)
 
