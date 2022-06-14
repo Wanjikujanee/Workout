@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
     lateinit var tvSignUp:TextView
@@ -33,6 +34,9 @@ class LoginActivity : AppCompatActivity() {
       }
       btnLogin.setOnClickListener{
           validateLogin()
+          val intent=Intent(this,HomeActivity::class.java)
+          startActivity(intent)
+
       }
   }
 
@@ -45,8 +49,11 @@ class LoginActivity : AppCompatActivity() {
         if (password.isBlank()){
             tilPassword.error="Password is required"
         }
+
+
     }
 }
+
 
 
 

@@ -75,9 +75,9 @@ class SignUpActivity : AppCompatActivity() {
 
 
         }
-        if(!Pattern.EMAIL_ADDRESS.matcher(email).matches()){
-            tilEmail.error="Email is invalid"
-        }
+//        if(!Pattern.EMAIL_ADDRESS.matcher(email).matches()){
+//            tilEmail.error="Email is invalid"
+//        }
 
 
 

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">WorkoutLog</string>
+    <string name="plan">Plan</string>
+    <string name="track">Track</string>
+    <string name="rpofile_menu">rPofile_menu</string>
+    <string name="profile">profile</string>
 
 
 </resources>
