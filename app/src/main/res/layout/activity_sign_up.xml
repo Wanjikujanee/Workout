@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpActivity"
+    android:background="#42f5dd">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilfirstName"
@@ -55,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tillastName">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/itEmail"
+            android:id="@+id/itemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +76,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/itPassword"
+            android:id="@+id/itpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:textInputLayoutFocusedRectEnabled="true"

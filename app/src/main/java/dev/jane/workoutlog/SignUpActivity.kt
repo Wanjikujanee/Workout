@@ -8,38 +8,44 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
 import com.google.android.material.textfield.TextInputLayout
+import dev.jane.workoutlog.databinding.ActivitySignUpBinding
 import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
-    lateinit var tvLogin: TextView
-    lateinit var btnSignUp: Button
-    lateinit var tilEmail: TextInputLayout
-    lateinit var tilfirstName: TextInputLayout
-    lateinit var tilPassword: TextInputLayout
-    lateinit var tillastName: TextInputLayout
-    lateinit var tilconfirm: TextInputLayout
+    lateinit var binding: ActivitySignUpBinding
+
+
+//    lateinit var tvLogin: TextView
+//    lateinit var btnSignUp: Button
+//    lateinit var tilEmail: TextInputLayout
+//    lateinit var tilfirstName: TextInputLayout
+//    lateinit var tilPassword: TextInputLayout
+//    lateinit var tillastName: TextInputLayout
+//    lateinit var tilconfirm: TextInputLayout
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-        tvLogin=findViewById(R.id.tvSignUp)
-        btnSignUp=findViewById(R.id.btnSignUp)
-        tillastName=findViewById(R.id.tillastName)
-        tilconfirm=findViewById(R.id.tilconfirm)
-        tilEmail=findViewById(R.id.tilEmail)
-        tilfirstName=findViewById(R.id.tilfirstName)
-        tilPassword=findViewById(R.id.tilPassword)
+        binding= ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+//        tvLogin=findViewById(R.id.tvSignUp)
+//        btnSignUp=findViewById(R.id.btnSignUp)
+//        tillastName=findViewById(R.id.tillastName)
+//        tilconfirm=findViewById(R.id.tilconfirm)
+//        tilEmail=findViewById(R.id.tilEmail)
+//        tilfirstName=findViewById(R.id.tilfirstName)
+//        tilPassword=findViewById(R.id.tilPassword)
 
 
-        tvLogin.setOnClickListener {
+        binding.tvLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
 
         }
 
-        btnSignUp.setOnClickListener{
+        binding.btnSignUp.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
            invalidateSignUp()
@@ -47,37 +53,35 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     fun invalidateSignUp() {
-        var firstname=tilfirstName.editText.toString()
-        var lastname=tillastName.editText.toString()
-        var email=tilEmail.editText.toString()
-        var password=tilPassword.editText.toString()
-        var confirm=tilconfirm.editText.toString()
+        var firstname=binding.tilfirstName.editText.toString()
+        var lastname=binding.tillastName.editText.toString()
+        var confirm=binding.tilconfirm.editText.toString()
+        var email=binding.itemail.text.toString()
+        var password=binding.itpassword.text.toString()
+
 
         if(firstname.isBlank()){
-            tilfirstName.error="Email is invalid"
+            binding.itfirstName.error="Email is invalid"
         }
         if (lastname.isBlank()){
-            tillastName.error="Password is required"
+            binding.itfirstName.error="Password is required"
         }
-        tilEmail.error=null
+        binding.itemail.error=null
 
         if(email.isBlank()){
-            tilEmail.error="Email is invalid"
+            binding.itemail.error="email is invalid"
         }
         if (password.isBlank()){
-            tilPassword.error="Password is required"
+            binding.itpassword.error="password is required"
         }
         if (confirm.isBlank()){
-            tilconfirm.error="Password is required"
+            binding.itConfirm.error="Password is required"
         }
-        if (tilPassword!=tilconfirm){
-            tilconfirm.error="error"
+        if (binding.itpassword!=binding.tilconfirm){
+            binding.tilconfirm.error="error"
 
 
         }
-//        if(!Pattern.EMAIL_ADDRESS.matcher(email).matches()){
-//            tilEmail.error="Email is invalid"
-//        }
 
 
 
